@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tareas Pendientes</title>
+    <link rel="stylesheet" href="./tareas/styles.css" />
+    <link rel="stylesheet" href="./tareas/tareas.css" />
+    <link rel="stylesheet" href="./tareas/normalize.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+  </head>
+  <body>
+    <div id="calendario-contenedor">
+      <div id="calendario">
+        <table>
+          <thead>
+            <tr id="filaMeses"></tr>
+          </thead>
+          <tbody id="cuerpoDias"></tbody>
+        </table>
+
+        <!-- Popup para eventos -->
+        <div id="popup" style="display: none">
+          <div id="popup-contenido">
+            <!-- Contenido del popup será generado dinámicamente -->
+            <button onclick="cerrarPopup()">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="contenedor-columnas" class="contenedor-columnas">
+      <div class="columna-izquierda">
+        <ul id="tareasPendientesSortable"></ul>
+        <button id="agregar-tarea" class="boton">Agregar Tarea</button>
+        <div id="ventana-agregarTarea" style="display: none">
+          <label for="texto-tarea">Título de la tarea:</label>
+          <input type="text" id="texto-tarea" />
+          <button id="guardar-tarea" class="boton">Guardar Tarea</button>
+          <button id="cancelar-tarea" class="boton">Cancelar</button>
+        </div>
+      </div>
+      <div class="columna-derecha">
+        <ul id="tareasCompletadas"></ul>
+        <div id="rankingCompletadas"></div>
+      </div>
+    </div>
+    <div id="notificacion" style="display: none"></div>
+    <!-- Modal HTML -->
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p></p>
+        <!-- Este párrafo es donde se mostrará el mensaje -->
+        <div class="modal-buttons">
+          <button id="confirmBtn" class="modal-button confirm">Sí</button>
+          <button id="cancelBtn" class="modal-button cancel">No</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./tareas//calendario.js"></script>
+    <script type="module" src="./tareas/conexiones.js"></script>
+    <script type="module" src="./tareas/tareas.js"></script>
+  </body>
+</html>
